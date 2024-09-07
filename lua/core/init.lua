@@ -18,32 +18,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 --require("lazy").setup("plugins")
 
--- require("lazy").setup(plugins, opts)
--- ######## PROJECT NVIM.LUA #########
--- Loan nvim.lua for project if it exists
-
-function file_exists(name)
-	local f = io.open(name, "r")
-	if f ~= nil then
-		io.close(f)
-		return true
-	else
-		return false
-	end
-end
-
---require("core.keymaps")
-
 require("core.plugins")
 require("core.gui")
 
-print(vim.fn.getcwd() .. "/nvim.lua")
-if file_exists(vim.fn.getcwd() .. "/nvim.lua") then
-	dofile(vim.fn.getcwd() .. "/nvim.lua")
-else
-	--print("nvim.lua not found!")
-end
 
+-- require("lazy").setup(plugins, opts)
+-- ######## PROJECT NVIM.LUA #########
+-- Loan nvim.lua for project if it exists
 require("configs.autocomplete").config()
 require("configs.statusline").config()
 require("configs.treesitter").config()
@@ -92,9 +73,27 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 	pattern = "*",
 	callback = function()
 		vim.lsp.buf.format()
-                        print("formatted")
+		print("formatted")
 	end,
 })
 
 require("core.keymaps")
 require("core.theme")
+
+
+function file_exists(name)
+	local f = io.open(name, "r")
+	if f ~= nil then
+		io.close(f)
+		return true
+	else
+		return false
+	end
+end
+
+print(vim.fn.getcwd() .. "/nvim.lua")
+if file_exists(vim.fn.getcwd() .. "/nvim.lua") then
+	dofile(vim.fn.getcwd() .. "/nvim.lua")
+else
+	--print("nvim.lua not found!")
+end
