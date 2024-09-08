@@ -21,7 +21,6 @@ vim.opt.rtp:prepend(lazypath)
 require("core.plugins")
 require("core.gui")
 
-
 -- require("lazy").setup(plugins, opts)
 -- ######## PROJECT NVIM.LUA #########
 -- Loan nvim.lua for project if it exists
@@ -79,7 +78,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 
 require("core.keymaps")
 require("core.theme")
-
 
 function file_exists(name)
 	local f = io.open(name, "r")
