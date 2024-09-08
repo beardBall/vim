@@ -1,8 +1,7 @@
 require("lazy").setup({
 	-- themes
-	"sainnhe/sonokai",
 
-	"ThePrisainnhe/sonokai",
+	"sainnhe/sonokai",
 	"catppuccin/nvim",
 	"tiagovla/tokyodark.nvim",
 	"projekt0n/github-nvim-theme",
