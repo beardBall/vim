@@ -2,6 +2,7 @@ require("lazy").setup({
 	-- themes
 
 	"sainnhe/sonokai",
+	"sainnhe/gruvbox-material",
 	"catppuccin/nvim",
 	"tiagovla/tokyodark.nvim",
 	"projekt0n/github-nvim-theme",
@@ -29,13 +30,22 @@ require("lazy").setup({
 	"stevearc/oil.nvim",
 	"akinsho/bufferline.nvim",
 	"moll/vim-bbye",
-	"nvimtools/none-ls.nvim",
 
+	"nvimtools/none-ls.nvim",
 	"neovim/nvim-lspconfig",
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"nvimdev/lspsaga.nvim",
 	"hrsh7th/cmp-nvim-lsp",
+
+    { "mfussenegger/nvim-dap",
+        dependancies =
+        { "rcarriga/nvim-dap-ui",
+            "nvim-neotest/nvim-nio",
+            "theHamsta/nvim-dap-virtual-text",}
+    },
+
+
 	"hrsh7th/cmp-buffer",
 	"hrsh7th/cmp-path",
 	"hrsh7th/cmp-cmdline",

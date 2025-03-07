@@ -1,14 +1,16 @@
-local M = {}
+local M = {
+    "akinsho/bufferline.nvim",
+}
 
 function M.config()
     require('bufferline').setup {
         options = {
-            mode = "buffers", -- set to "tabs" to only show tabpages instead
+            mode = "buffers",                    -- set to "tabs" to only show tabpages instead
             numbers = "none",
-            close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+            close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
             right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
-            left_mouse_command = "buffer %d", -- can be a string | function, see "Mouse actions"
-            middle_mouse_command = nil, -- can be a string | function, see "Mouse actions"
+            left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
+            middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
             -- NOTE: this plugin is designed with this icon in mind,
             -- and so changing this is NOT recommended, this is intended
             -- as an escape hatch for people who cannot bear it for whatever reason
@@ -67,7 +69,7 @@ function M.config()
             end,
             offsets = {
                 { filetype = "bufferlist", text = "Explorer", text_align = "center" },
-                { filetype = "filetree", text = "Explorer", text_align = "center" },
+                { filetype = "filetree",   text = "Explorer", text_align = "center" },
             },
             color_icons = true,
             show_buffer_icons = true,

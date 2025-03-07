@@ -1,4 +1,3 @@
-
 --vim.keymap.set({ 'n', 'v', 'i' }, '<C-q>', '<cmd>:q<CR>')
 --vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<cmd>:w<CR><ESC>')
 
@@ -14,10 +13,10 @@ end
 
 -- keymaps
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = {"rust", "haskell", "cpp"},
+    pattern = { "rust", "haskell", "cpp" },
     callback = function()
         vim.schedule(function()
-            vim.keymap.set("i", "<C-;>", "::", {buffer = true})
+            vim.keymap.set("i", "<C-;>", "::", { buffer = true })
         end)
     end,
 })
@@ -31,31 +30,20 @@ vim.keymap.set("n", "<leader>vd", set_bg_dark)
 vim.keymap.set("n", "<leader>", ":")
 vim.keymap.set("n", "<space>", "f<space>")
 
-local ls = require("luasnip")
-vim.keymap.set({"i"}, "<C-o>", function() ls.expand() end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-l>", function() ls.jump(1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-h>", function() ls.jump(-1) end, {silent = true})
-vim.keymap.set({"i", "s"}, "<C-k>", function()
-    if ls.choice_active() then
-        ls.change_choice(1)
-    end
-end, {silent = true})
+--local ls = require("luasnip")
+--vim.keymap.set({"i"}, "<C-o>", function() ls.expand() end, {silent = true})
+--vim.keymap.set({"i", "s"}, "<C-l>", function() ls.jump(1) end, {silent = true})
+--vim.keymap.set({"i", "s"}, "<C-h>", function() ls.jump(-1) end, {silent = true})
+--vim.keymap.set({"i", "s"}, "<C-k>", function()
+--    if ls.choice_active() then
+--        ls.change_choice(1)
+--    end
+--end, {silent = true})
 
 -- f: file tree
 vim.keymap.set("n", "<F3>", ":Oil<cr>")
 vim.keymap.set("n", "<leader>ft", ":Oil<cr>")
 
--- d: telescope
-local telescope_builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>df", function() telescope_builtin.find_files() end)
-vim.keymap.set("n", "<leader>ff", telescope_builtin.live_grep )
-vim.keymap.set("n", "<F9>", function() telescope_builtin.find_files() end)
-vim.keymap.set("n", "<leader>dg", function() telescope_builtin.git_files() end)
-vim.keymap.set("n", "<F10>", function() telescope_builtin.git_files() end)
-vim.keymap.set("n", "<leader>db", function() telescope_builtin.buffers() end)
-vim.keymap.set("n", "<leader>dc", function() telescope_builtin.colorscheme() end)
-vim.keymap.set("n", "<leader>dr", function() telescope_builtin.registers() end)
-vim.keymap.set({ "n", "i" }, "<C-p>", function() telescope_builtin.registers() end)
 -- w: window
 vim.keymap.set("n", "<leader>w1", "<c-w>o")
 vim.keymap.set("n", "<leader>wx", ":x<cr>")
@@ -84,7 +72,7 @@ vim.keymap.set("n", "<leader>sw", "/\\<lt>\\><left><left>")
 vim.keymap.set("n", "<leader>ee", ":Lspsaga show_line_diagnostics<cr>")
 vim.keymap.set("n", "<leader>ef", ":Lspsaga show_cursor_diagnostics<cr>")
 vim.keymap.set("n", "<leader>el", ":TroubleToggle<cr>") -- Show list of diagnostics across the workspace
-vim.keymap.set("n", "<leader>et", ":Trouble<cr>") -- Focus onto the trouble window
+vim.keymap.set("n", "<leader>et", ":Trouble<cr>")       -- Focus onto the trouble window
 vim.keymap.set("n", "<leader>lq", vim.diagnostic.setloclist)
 vim.keymap.set("n", "<leader>lk", ":Lspsaga hover_doc<cr>")
 vim.keymap.set("n", "<leader>ld", ":Lspsaga preview_definition<cr>")
@@ -129,5 +117,3 @@ vim.keymap.set("n", "<leader>hs", ":<C-U>Gitsigns select_hunk<CR>")
 
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-q>', '<cmd>:q<CR>')
 vim.keymap.set({ 'n', 'v', 'i' }, '<C-s>', '<cmd>:w<CR><ESC>')
-
-
